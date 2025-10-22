@@ -1,0 +1,20 @@
+# dependencies
+node_modules
+projects/*/node_modules
+
+# builds
+.dist
+/build
+/dist
+coverage
+.tmp
+.temp
+
+# Angular build output
+.angular
+
+# logs
+*.log
+
+# misc
+.DS_Store

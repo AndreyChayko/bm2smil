@@ -1,0 +1,20 @@
+<section class="container">
+  <h1>bm2smil Angular UI</h1>
+  <p class="status">API base URL: {{ apiUrl() }}</p>
+  <button (click)="ping()" [disabled]="status() === 'loading'">Ping API</button>
+
+  @switch (status()) {
+    @case ('idle') {
+      <p class="status">Click the button to ping the API.</p>
+    }
+    @case ('loading') {
+      <p class="status">Sending request...</p>
+    }
+    @case ('ok') {
+      <p class="status ok">Response: {{ message() }}</p>
+    }
+    @case ('error') {
+      <p class="status error">Error: {{ error() }}</p>
+    }
+  }
+</section>

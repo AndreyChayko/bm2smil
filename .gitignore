@@ -1,0 +1,6 @@
+# Root-level ignores
+# Do not commit IDE/project settings
+/.idea/
+
+# Do not commit Junie/assistant workspace files
+/.junie/

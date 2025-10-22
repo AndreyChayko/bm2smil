@@ -1,0 +1,20 @@
+/* Theme variables */
+:root {
+  /* Typography */
+  --main-font:
+    system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, Helvetica,
+    sans-serif;
+
+  /* App colors */
+  --main-background-color: #0b1220; /* Application background */
+  --text-primary-color: #e6eaf2; /* Primary text color on dark bg */
+
+  /* State colors */
+  --text-success-color: #7bd88f; /* Success text color */
+  --text-error-color: #ff6b6b; /* Error text color */
+
+  /* Button colors */
+  --button-border-color: #2b3a6b;
+  --button-bg-color: #17223b;
+  --button-hover-bg-color: #1d2a4c;
+}

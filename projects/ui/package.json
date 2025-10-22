@@ -1,0 +1,37 @@
+{
+  "name": "ui",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "server:dev": "npm run --prefix ..\\server dev",
+    "server:start": "npm run --prefix ..\\server start",
+    "dev:all": "concurrently -k -n server,ui -c blue,green \"npm run server:dev\" \"wait-on http://localhost:5174/api/health && ng serve\"",
+    "prettier:write": "prettier --write \"**/*.{ts,js,scss,css,html}\"",
+    "prettier:check": "prettier --check \"**/*.{ts,js,scss,css,html}\""
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/compiler": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/platform-browser": "^20.3.0",
+    "@angular/router": "^20.3.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.3.2",
+    "@angular/cli": "^20.3.2",
+    "@angular/compiler-cli": "^20.3.0",
+    "concurrently": "^9.0.1",
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "typescript": "~5.9.2",
+    "wait-on": "^7.2.0"
+  }
+}

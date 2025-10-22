@@ -1,0 +1,38 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--main-font), system-ui, sans-serif;
+  background: var(--main-background-color);
+  color: var(--text-primary-color);
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+}
+
+button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--button-border-color);
+  background: var(--button-bg-color);
+  color: var(--text-primary-color);
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--button-hover-bg-color);
+}
+
+.status {
+  font-size: 14px;
+  opacity: 0.9;
+}

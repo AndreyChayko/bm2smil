@@ -1,0 +1,32 @@
+{
+  "name": "bm2smil-server",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Express server for bm2smil conversion API (TypeScript)",
+  "scripts": {
+    "dev": "tsx watch src/main.ts",
+    "build": "tsc -p .",
+    "prestart": "npm run build",
+    "start": "node dist/main.js",
+    "prettier:write": "prettier --write \"**/*.{ts,js,json,md}\"",
+    "prettier:check": "prettier --check \"**/*.{ts,js,json,md}\""
+  },
+  "dependencies": {
+    "bodymovin-to-smil": "^1.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "multer": "2.0.2",
+    "undici": "^6.19.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.12",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.6.2",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3"
+  }
+}

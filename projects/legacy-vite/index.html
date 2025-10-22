@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bm2smil — Lottie → Animated SVG</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; }
+      header { padding: 20px 24px; border-bottom: 1px solid rgba(127,127,127,.25); }
+      main { padding: 24px; display: grid; gap: 16px; max-width: 960px; margin: 0 auto; }
+      .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+      .card { border: 1px solid rgba(127,127,127,.25); border-radius: 12px; padding: 16px; }
+      .drop { border: 2px dashed rgba(127,127,127,.45); border-radius: 12px; padding: 20px; text-align: center; }
+      .drop.over { background: rgba(127,127,127,.08); }
+      button { padding: 8px 12px; border-radius: 10px; border: 1px solid #ccc; background: transparent; cursor: pointer; }
+      button:hover { background: rgba(0,0,0,.06); }
+      input[type="text"] { width: 420px; max-width: 95vw; padding: 8px 10px; }
+      .mono { font-family: ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size: 12px; }
+      .svgwrap { border: 1px dashed rgba(127,127,127,.35); padding: 8px; border-radius: 8px; overflow: auto; max-height: 60vh; }
+      .hint { opacity: .8; }
+      .actions { display:flex; gap:10px; flex-wrap: wrap; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>bm2smil — Lottie → Animated SVG (SMIL)</h1>
+      <p class="hint">Drag & drop JSON, вставь URL или выбери файл. Конвертация выполняется на сервере, на выходе — чистый анимированный SVG.</p>
+    </header>
+    <main>
+      <section class="card">
+        <h3>1) Входной Lottie JSON</h3>
+        <div class="row actions">
+          <input id="file" type="file" accept=".json,application/json" />
+          <input id="url" type="text" placeholder="https://example.com/animation.json" />
+          <button id="loadUrl">Загрузить по URL</button>
+        </div>
+        <div id="drop" class="drop" style="margin-top:12px;">
+          Перетащи сюда .json файл
+        </div>
+        <p id="meta" class="mono hint"></p>
+      </section>
+
+      <section class="card">
+        <h3>2) Конвертация</h3>
+        <div class="actions">
+          <button id="convert">Convert → SVG</button>
+          <button id="download" disabled>Скачать SVG</button>
+          <button id="copy" disabled>Скопировать SVG</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>3) Предпросмотр</h3>
+        <div class="svgwrap">
+          <object id="preview" type="image/svg+xml" style="width: 100%; min-height: 300px;"></object>
+        </div>
+      </section>
+
+      <details>
+        <summary>Debug</summary>
+        <pre class="mono" id="dbg"></pre>
+      </details>
+    </main>
+
+    <script type="module" src="src/main.ts"></script>
+  </body>
+</html>

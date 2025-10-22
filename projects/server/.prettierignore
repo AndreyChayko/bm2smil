@@ -1,0 +1,14 @@
+# dependencies
+node_modules
+
+# build output
+dist
+.build
+coverage
+
+# temporary
+.tmp
+.temp
+
+# logs
+*.log

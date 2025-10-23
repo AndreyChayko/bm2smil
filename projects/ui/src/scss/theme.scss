@@ -1,20 +1,41 @@
-/* Theme variables */
+/* Theme variables (CSS Custom Properties)
+   Consolidated from previous variables.scss and theme.scss.
+   Using :root for higher precedence over html as requested. */
 :root {
-  /* Typography */
+  /* Contrast-first palette */
+  --bg: #0a0c10; /* near-black */
+  --bg-elev: #0f1420; /* elevated panels */
+  --card: #101626; /* cards */
+  --border: #2a364b; /* strong border for contrast */
+
+  --text: #ffffff; /* primary text high contrast */
+  --text-muted: #c8d1dc; /* muted but readable */
+
+  --accent: #5b8cff; /* accessible blue */
+  --accent-2: #22d3ee; /* cyan (kept for gradients in text only) */
+
+  --ok: #10b981; /* emerald */
+  --warn: #f59e0b; /* amber */
+  --err: #ef4444; /* red */
+
+  /* Button variables (solid backgrounds) */
+  --btn-bg: #2563eb; /* blue-600 */
+  --btn-bg-hover: #1d4ed8; /* blue-700 */
+  --btn-text: #ffffff;
+  --btn-border: #1e3a8a; /* blue-900 */
+
+  /* Layout */
+  --container-max: 75rem;
+
+  /* Legacy theme aliases for compatibility (mapped to primary vars) */
   --main-font:
-    system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, Helvetica,
-    sans-serif;
-
-  /* App colors */
-  --main-background-color: #0b1220; /* Application background */
-  --text-primary-color: #e6eaf2; /* Primary text color on dark bg */
-
-  /* State colors */
-  --text-success-color: #7bd88f; /* Success text color */
-  --text-error-color: #ff6b6b; /* Error text color */
-
-  /* Button colors */
-  --button-border-color: #2b3a6b;
-  --button-bg-color: #17223b;
-  --button-hover-bg-color: #1d2a4c;
+    'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+    Noto Sans, Arial, Helvetica, sans-serif;
+  --main-background-color: var(--bg);
+  --text-primary-color: var(--text);
+  --text-success-color: var(--ok);
+  --text-error-color: var(--err);
+  --button-border-color: var(--btn-border);
+  --button-bg-color: var(--btn-bg);
+  --button-hover-bg-color: var(--btn-bg-hover);
 }

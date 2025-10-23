@@ -1,0 +1,17 @@
+@if (msg()) {
+  <div class="global-messages" role="region" aria-live="assertive">
+    <div [class]="toastClass()" role="alert">
+      <span class="global-messages__text">{{ msg()!.message }}</span>
+      @if (msg()!.canClose) {
+        <button
+          type="button"
+          class="btn btn--secondary global-messages__close"
+          (click)="close()"
+          aria-label="Close message"
+        >
+          ×
+        </button>
+      }
+    </div>
+  </div>
+}

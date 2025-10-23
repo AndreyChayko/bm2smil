@@ -1,6 +1,57 @@
-.ok {
-  color: var(--text-success-color);
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
 }
-.error {
-  color: var(--text-error-color);
+
+main.container {
+  width: min(var(--container-max), 100%);
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+.app-intro {
+  margin-bottom: 1rem;
+}
+
+.app-intro__panel {
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  border-left: 3px solid var(--accent);
+}
+
+.app-intro__title {
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.app-intro__text {
+  margin: 0;
+  color: var(--text-muted);
+}
+.app-intro__text a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.app-intro__support-title {
+  margin: 0.5rem 0 0.25rem 0;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.app-intro__list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.25rem;
+}
+.app-intro__list li::marker {
+  color: var(--accent);
 }

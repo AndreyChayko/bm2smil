@@ -1,20 +1,30 @@
-<section class="container">
-  <h1>bm2smil Angular UI</h1>
-  <p class="status">API base URL: {{ apiUrl() }}</p>
-  <button (click)="ping()" [disabled]="status() === 'loading'">Ping API</button>
-
-  @switch (status()) {
-    @case ('idle') {
-      <p class="status">Click the button to ping the API.</p>
-    }
-    @case ('loading') {
-      <p class="status">Sending request...</p>
-    }
-    @case ('ok') {
-      <p class="status ok">Response: {{ message() }}</p>
-    }
-    @case ('error') {
-      <p class="status error">Error: {{ error() }}</p>
-    }
-  }
-</section>
+<app-header />
+<main class="container">
+  <section class="app-intro">
+    <div class="card app-intro__panel">
+      <h2 class="app-intro__title gradient-title">Convert Lottie (Bodymovin) JSON to pure SVG</h2>
+      <p class="app-intro__text">
+        This tool converts Lottie (Bodymovin) animations into pure SVG with SMIL animations. The
+        server processing is powered by the
+        <a href="https://www.npmjs.com/package/bodymovin-to-smil" target="_blank" rel="noopener"
+          >bodymovin-to-smil</a
+        >
+        library.
+      </p>
+      <div class="app-intro__support">
+        <h3 class="app-intro__support-title">It supports basic animations:</h3>
+        <ul class="app-intro__list">
+          <li>masks (additive and intersect)</li>
+          <li>shapes</li>
+          <li>solids</li>
+          <li>texts</li>
+          <li>precomps</li>
+          <li>transforms</li>
+          <li>opacity</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <router-outlet />
+</main>
+<app-global-messages />

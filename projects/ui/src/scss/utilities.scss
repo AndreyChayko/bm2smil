@@ -1,0 +1,62 @@
+/* Text gradient utility (keep for titles only) */
+.gradient-title {
+  background: linear-gradient(92deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+/* Badge + status button (BEM) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  background: var(--bg-elev);
+  color: var(--text-muted);
+  user-select: none;
+}
+.badge__dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 999rem;
+}
+.badge--ok {
+  color: #dcffef;
+  border-color: rgba(16, 185, 129, 0.6);
+  background: rgba(16, 185, 129, 0.1);
+}
+.badge--ok .badge__dot {
+  background: var(--ok);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+}
+.badge--err {
+  color: #ffe1e1;
+  border-color: rgba(239, 68, 68, 0.6);
+  background: rgba(239, 68, 68, 0.1);
+}
+.badge--err .badge__dot {
+  background: var(--err);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25);
+}
+.badge--warn {
+  color: #fff2cf;
+  border-color: rgba(245, 158, 11, 0.6);
+  background: rgba(245, 158, 11, 0.14);
+}
+.badge--warn .badge__dot {
+  background: var(--warn);
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25);
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}

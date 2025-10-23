@@ -1,0 +1,153 @@
+.converter {
+  display: grid;
+  gap: 1rem;
+}
+
+.converter__panel {
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.converter__section {
+  border-left: 3px solid var(--accent);
+}
+.converter__section-title {
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.converter__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+.converter__row--upload {
+  grid-template-columns: auto auto;
+}
+
+.converter__url-input {
+  width: 100%;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--text);
+  padding: 0.625rem 0.75rem;
+}
+
+/* File button (label behaves like button) */
+label.converter__file-btn {
+  position: relative;
+  overflow: hidden;
+}
+.converter__file-btn input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Drag & Drop zone */
+.converter__dropzone {
+  border: 2px dashed var(--border);
+  border-radius: 0.625rem;
+  background: color-mix(in oklab, var(--bg-elev) 88%, white 12%);
+  padding: 1.25rem;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+.converter__dropzone--over {
+  border-color: var(--accent);
+  background: color-mix(in oklab, var(--bg-elev) 80%, var(--accent) 20%);
+}
+.converter__drop-inner {
+  display: grid;
+  place-items: center;
+  gap: 0.375rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+.converter__drop-icon {
+  font-size: 1.25rem;
+}
+.converter__drop-text {
+  color: var(--text);
+  font-weight: 700;
+}
+.converter__drop-hint {
+  font-size: 0.75rem;
+}
+
+/* Selected file chip */
+.converter__file-chip {
+  margin-top: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  display: grid;
+  grid-template-columns: 1.75rem 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+.converter__file-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+.converter__file-name {
+  font-weight: 700;
+}
+.converter__file-size {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin-top: 0.125rem;
+}
+/* Actions container for file chip */
+.converter__file-actions {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.converter__info {
+  color: var(--text-muted);
+}
+.converter__error {
+  color: var(--err);
+}
+
+.converter__result {
+  padding: 0.75rem;
+}
+.converter__result-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+.converter__result object {
+  width: 100%;
+  min-height: 26.25rem;
+  background: #000;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+/* Header row for Upload section: title + small button */
+.converter__section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+/* Equal width for primary action buttons (URL convert & Upload) */
+.converter__action-btn {
+  width: var(--action-btn-width, 9.5rem);
+  justify-content: center;
+}

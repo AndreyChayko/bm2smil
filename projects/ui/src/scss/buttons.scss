@@ -1,0 +1,109 @@
+/* Global button styles: primary and secondary variants, consistent typography */
+
+.btn {
+  --btn-bg: var(--bg-elev);
+  --btn-text: var(--text);
+  --btn-border: var(--border);
+  --btn-bg-hover: color-mix(in oklab, var(--btn-bg) 92%, white 8%);
+  --btn-text-hover: var(--text);
+  --btn-border-hover: color-mix(in oklab, var(--btn-border) 65%, white 35%);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 0.875rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font:
+    600 0.875rem/1.2 'Inter',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease,
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+/* Hover/focus only when not disabled */
+.btn:not([disabled]):not(.disabled):not([aria-disabled='true']):hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-text-hover);
+  border-color: var(--btn-border-hover);
+}
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 35%, transparent);
+}
+
+/* Disabled state - stronger visual than just cursor */
+.btn[disabled],
+.btn.disabled,
+.btn[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.55;
+  filter: grayscale(14%);
+  background: color-mix(in oklab, var(--btn-bg) 80%, #888 20%);
+  border-color: color-mix(in oklab, var(--btn-border) 70%, #888 30%);
+  color: color-mix(in oklab, var(--btn-text) 65%, #ddd 35%);
+}
+
+/* Variants */
+.btn--primary {
+  /* Brighter default while staying within theme */
+  --btn-bg: color-mix(in oklab, var(--accent) 82%, white 18%);
+  --btn-text: #0a0c10;
+  --btn-border: color-mix(in oklab, var(--accent) 68%, black 32%);
+  --btn-bg-hover: color-mix(in oklab, var(--accent) 92%, white 8%);
+  --btn-text-hover: #0a0c10;
+  --btn-border-hover: color-mix(in oklab, var(--accent) 72%, black 28%);
+}
+
+.btn--secondary {
+  --btn-bg: var(--bg-elev);
+  --btn-text: var(--text);
+  --btn-border: var(--border);
+}
+
+/* Danger utility (for destructive actions like remove) */
+.btn--danger {
+  --btn-bg: rgba(239, 68, 68, 0.18);
+  --btn-text: #ffd5d5;
+  --btn-border: rgba(239, 68, 68, 0.38);
+  --btn-bg-hover: rgba(239, 68, 68, 0.26);
+  --btn-text-hover: #fff;
+  --btn-border-hover: rgba(239, 68, 68, 0.5);
+}
+
+/* Small size modifier */
+.btn--sm {
+  height: 1.875rem;
+  padding: 0 0.625rem;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+}
+
+/* Extra small size (≈ half of base height) */
+.btn--xs {
+  height: 1.125rem;
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+}
+
+/* Full width helper when needed */
+.btn--block {
+  width: 100%;
+}

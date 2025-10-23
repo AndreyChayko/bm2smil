@@ -1,0 +1,95 @@
+<section class="converter">
+  <!-- Method 1: Convert by URL -->
+  <div class="card converter__panel converter__section">
+    <h3 class="converter__section-title">Convert by URL</h3>
+    <div class="converter__row">
+      <input
+        #urlEl
+        class="converter__url-input"
+        type="text"
+        placeholder="Paste URL to .json (Lottie)"
+        [value]="svc.url()"
+        (input)="onUrlInput(urlEl)"
+      />
+      <button
+        class="btn btn--primary converter__action-btn"
+        (click)="convertByUrl()"
+        [disabled]="svc.busy() || !svc.url().trim()"
+      >
+        Convert URL
+      </button>
+    </div>
+  </div>
+
+  <!-- Method 2: Upload JSON file -->
+  <div class="card converter__panel converter__section">
+    <div class="converter__section-head">
+      <h3 class="converter__section-title">Upload JSON file</h3>
+      <label class="btn btn--secondary converter__file-btn converter__action-btn">
+        <input #fileEl type="file" accept="application/json" (change)="onFileChange(fileEl)" />
+        Choose file
+      </label>
+    </div>
+  </div>
+
+  <!-- Method 3: Drag & Drop -->
+  <div class="card converter__panel converter__section">
+    <h3 class="converter__section-title">Drag & drop</h3>
+    <div
+      class="converter__dropzone"
+      [class.converter__dropzone--over]="dragging()"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave()"
+      (drop)="onDrop($event)"
+      role="button"
+      tabindex="0"
+      aria-label="Drop JSON file here"
+    >
+      <div class="converter__drop-inner">
+        <div class="converter__drop-icon" aria-hidden="true">⬇️</div>
+        <div class="converter__drop-text">Drop your JSON file here</div>
+        <div class="converter__drop-hint">or click the button above to choose</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared selected file panel -->
+  @if (svc.file()) {
+    <div class="converter__file-chip card">
+      <div class="converter__file-icon" aria-hidden="true">📄</div>
+      <div class="converter__file-meta">
+        <div class="converter__file-name">{{ svc.fileName() }}</div>
+        <div class="converter__file-size">{{ svc.fileSize() }}</div>
+      </div>
+      <div class="converter__file-actions">
+        <button
+          class="btn btn--danger converter__file-remove"
+          type="button"
+          (click)="removeFile()"
+          aria-label="Remove file"
+          title="Remove file"
+        >
+          Remove
+        </button>
+      </div>
+    </div>
+  }
+
+  @if (svc.busy()) {
+    <div class="converter__info">Converting... Please wait.</div>
+  }
+
+  @if (svc.svg()) {
+    <div class="card converter__result">
+      <div class="converter__result-actions">
+        <button class="btn btn--primary" (click)="navigator.clipboard.writeText(svc.svg()!)">
+          Copy SVG
+        </button>
+        <a class="btn btn--primary dl" [href]="svc.safeSvgDownloadUrl()" download="converted.svg"
+          >Download</a
+        >
+      </div>
+      <object [data]="svc.safeSvgResourceUrl()" type="image/svg+xml"></object>
+    </div>
+  }
+</section>

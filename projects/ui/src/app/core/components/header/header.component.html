@@ -1,0 +1,24 @@
+<header class="app-header">
+  <div class="container app-header__row">
+    <div class="app-header__left">
+      <a class="app-header__brand" routerLink="/">
+        <span class="app-header__logo" aria-hidden="true">◎</span>
+        <span class="app-header__title gradient-title"
+          >LOTTIE AND BODYMOVIN TO PURE SVG CONVERTER</span
+        >
+      </a>
+    </div>
+    <div class="app-header__right">
+      <button
+        type="button"
+        [class]="statusClass()"
+        (click)="pingNow()"
+        aria-live="polite"
+        title="Server status"
+      >
+        <span class="badge__dot" aria-hidden="true"></span>
+        {{ statusText() }}
+      </button>
+    </div>
+  </div>
+</header>
